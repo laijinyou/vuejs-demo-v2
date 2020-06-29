@@ -21,3 +21,4 @@ export default {
   margin-top: 200px;
 }
 </style>
+<!-- 以 .vue 结尾的文件构成了一个单文件组件，它可以由 <template>、<script> 和 <style> 三个部分组成，分别对应模板、脚本和样式。-->
