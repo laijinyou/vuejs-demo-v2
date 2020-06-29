@@ -7,6 +7,20 @@
         <p><a class="btn btn-primary btn-lg" href="http://www.bootcss.com/" role="button" target="_blank">Learn more <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></a></p>
       </div>
     </div>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Welcome from Font Awesome</h1>
+        <p>Get vector icons and social logos on your website with Font Awesome, the web’s most popular icon set and toolkit.</p>
+        <p>
+          <i class="fa fa-camera"></i>
+          <i class="fa fa-camera fa-2x"></i>
+          <i class="fa fa-camera fa-3x"></i>
+          <i class="fa fa-camera fa-4x"></i>
+          <i class="fa fa-camera fa-5x"></i>
+          <i class="fa fa-spinner fa-spin"></i>
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -18,7 +32,9 @@ export default {
 
 <style lang="scss">
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+$fa-font-path: "~font-awesome/fonts/";
 @import "~bootstrap-sass/assets/stylesheets/_bootstrap";
+@import "~font-awesome/scss/font-awesome";
 
 body > .container { margin-top: 15px;}
 </style>
@@ -26,3 +42,4 @@ body > .container { margin-top: 15px;}
 <!-- 以 .vue 结尾的文件构成了一个单文件组件，它可以由 <template>、<script> 和 <style> 三个部分组成，分别对应模板、脚本和样式。-->
 <!-- 上面的 <style> 部分使用了 scss 语法，它是 Sass（一种 CSS 扩展语言）语法的一种，Sass 允许我们在 CSS 中书写支持变量等编程特性的语法。$icon-font-path 是 bootstrap-sass 的一个变量，用于指定字体路径，它默认使用了一个相对路径的地址，在使用 @import 引入样式前，我们需要手动将其指向 "~bootstrap-sass/assets/fonts/bootstrap/"，不指定会报找不到字体模块的错误 -->
 <!-- "~bootstrap-sass/assets/fonts/bootstrap/" 中的波浪号（~）会将后面的内容当模块路径对待，默认指向 node_modules 目录。-->
+<!-- $fa-font-path 是 font-awesome 的一个变量，用于指定字体路径，我们需要手动将其指向 "~font-awesome/fonts/"。-->
