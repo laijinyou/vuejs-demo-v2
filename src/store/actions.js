@@ -56,5 +56,20 @@ export const post = ({ commit, state }, { article, articleId }) => {
     // 更新所有文章
     commit('UPDATE_ARTICLES', articles)
     router.push({ name: 'Content', params: { articleId, showMsg: true } })
+  } else { // article 传参时
+    // 遍历所有文章
+    for (let article of articles) {
+      // 找到与 articleId 对应的文章
+      if (parseInt(article.articleId) === parseInt(articleId)) {
+        // 删除对应的文章
+        articles.splice(articles.indexOf(article), 1)
+        break
+      }
+    }
+
+    // 更新文章列表
+    commit('UPDATE_ARTICLES', articles)
+    // 跳转到首页，附带 showMsg 参数，以指示首页显示一个消息提示
+    router.push({ name: 'Home', params: { showMsg: true } })
   }
 }
