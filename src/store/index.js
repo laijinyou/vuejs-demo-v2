@@ -17,7 +17,9 @@ const state = {
   // 所有文章状态
   articles: ls.getItem('articles'),
   // 搜索值
-  searchValue: ''
+  searchValue: '',
+  // 默认为 location.origin
+  origin: location.origin.indexOf('github.io') !== -1 ? `${location.origin}/vuejs-essential/dist` : location.origin 
 }
 
 // 更改状态的方法，我们可以在这里更改状态，调用方法是像 store.commit('UPDATE_USER', user) 这样提交一个事件类型，这里不能包含异步操作
