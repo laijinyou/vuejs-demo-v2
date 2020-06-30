@@ -27,16 +27,27 @@
             <a href="#" @click="changeNavIndex(index)">{{ item }}</a>
           </li>
         </ul>
-      </div>
 
+         <!-- 入口组件 -->
+        <div class="navbar-right">
+          <TheEntry/>
+        </div>
+      </div>
     </div>
 
   </div>
 </template>
 
 <script>
+// 引入 TheEntry.vue 的默认值
+import TheEntry from '@/components/layouts/TheEntry'
+
 export default {
   name: 'TheHeader',
+  // 添加 components 选项，并注册 TheEntry
+  components: {
+    TheEntry
+  },
   // 数据对象，在组件里必须是返回一个初始数据对象的函数，我们可以在这里添加所需的数据
   data() {
     return {
