@@ -25,6 +25,11 @@
 
 <script>
 import SimpleMDE from 'simplemde'
+// 引入 highlight.js 的默认值
+import hljs from 'highlight.js'
+
+// 添加全局变量
+window.hljs = hljs
 
 export default {
   name: 'Create',
@@ -56,5 +61,4 @@ export default {
 <style scoped>
 .blog-container { max-width: 980px; margin: 0 auto; margin-top: 20px;}
 textarea { height: 200px; }
-@import '~simplemde/dist/simplemde.min.css';
 </style>

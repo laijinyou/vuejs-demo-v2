@@ -46,6 +46,8 @@ $fa-font-path: "~font-awesome/fonts/";
 @import "~font-awesome/scss/font-awesome";
 @import "./styles/main";
 @import "./styles/extra";
+@import '~simplemde/dist/simplemde.min.css';
+@import '~highlight.js/styles/paraiso-dark.css';
 </style>
 <!-- 通过为 <template> 和 <style> 指定 lang 属性，我们就可以使用其他语法来书写代码。-->
 <!-- 以 .vue 结尾的文件构成了一个单文件组件，它可以由 <template>、<script> 和 <style> 三个部分组成，分别对应模板、脚本和样式。-->
