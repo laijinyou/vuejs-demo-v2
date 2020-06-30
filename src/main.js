@@ -6,6 +6,8 @@ import App from './App'
 import router from './router'
 import './directives'
 import './components'
+// 引入 store/index.js 的默认值
+import store from './store'
 
 // 设置 false 以阻止 Vue 在启动时生成生产提示
 Vue.config.productionTip = false
@@ -14,5 +16,6 @@ Vue.config.productionTip = false
 // 该函数用来生成虚拟节点，最后使用 $mount 方法将其挂在到 #app。
 new Vue({
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')
