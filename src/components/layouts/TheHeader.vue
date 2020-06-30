@@ -1,7 +1,16 @@
 <template>
   <div class="navbar navbar-default topnav">
+
     <div class="container">
+
       <div class="navbar-header">
+        <button type="button" class="navbar-toggle" @click="toggleNav">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
         <a href="/" class="navbar-brand">
           <span class="title">{{ logo.title }}</span>
           <img :src="logo.src" :alt="logo.title">
@@ -9,7 +18,7 @@
       </div>
 
       <!-- v-for 使用 item in items 形式的特殊语法，items 是源数组的别名，对应我们这里的 navList，item 是数组元素的别名，你可以使用其他适合的名称。-->
-      <div id="top-navbar-collapse" class="collapse navbar-collapse">
+      <div id="top-navbar-collapse" :class="['collapse', 'navbar-collapse', { in: showCollapsedNav }]">
         <ul class="nav navbar-nav">
           <!-- v-for 支持一个可选的第二个参数为当前项的索引，该索引从 0 开始，对应我们这里的 index-->
           <!-- 我们使用对象语法对 class 进行了绑定，上面的语法表示当 index === activeNavIndex 返回 true 时添加 'active' 这个类名-->
@@ -21,6 +30,7 @@
       </div>
 
     </div>
+
   </div>
 </template>
 
@@ -36,7 +46,9 @@ export default {
         title: 'Vue.js Demo'
       },
       navList: ['社区', '头条', '问答', '教程'],
-      activeNavIndex: 0
+      activeNavIndex: 0,
+      // 添加一个是否显示折叠导航的开关 showCollapsedNav
+      showCollapsedNav: false
     }
   },
   // 生命周期钩子的一部分，在实例初始化之后，数据观测之前被调用，所以我们能从数据对象 data 中访问 this.uploadsUrl
@@ -48,6 +60,10 @@ export default {
   methods: {
     changeNavIndex(index) {
       this.activeNavIndex = index
+    },
+    // 添加一个 toggleNav 的方法，用来改变 showCollapsedNav
+    toggleNav() {
+      this.showCollapsedNav = !this.showCollapsedNav
     }
   }
 }
