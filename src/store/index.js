@@ -15,7 +15,9 @@ const state = {
   // 添加 auth 来保存当前用户的登录状态
   auth: ls.getItem('auth'),
   // 所有文章状态
-  articles: ls.getItem('articles')
+  articles: ls.getItem('articles'),
+  // 搜索值
+  searchValue: ''
 }
 
 // 更改状态的方法，我们可以在这里更改状态，调用方法是像 store.commit('UPDATE_USER', user) 这样提交一个事件类型，这里不能包含异步操作
@@ -35,6 +37,10 @@ const mutations = {
   UPDATE_ARTICLES(state, articles) {
     state.articles = articles
     ls.setItem('articles', articles)
+  },
+  // 更新搜索值的事件类型
+  UPDATE_SEARCH_VALUE(state, searchValue) {
+    state.searchValue = searchValue
   }
 }
 
