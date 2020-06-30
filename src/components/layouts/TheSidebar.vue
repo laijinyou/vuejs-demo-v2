@@ -47,6 +47,36 @@
       </div>
     </div>
 
+    <!-- 其他内容 -->
+    <div class="other">
+      <div class="panel panel-default corner-radius sidebar-resources">
+        <div class="panel-heading text-center">
+          <h3 class="panel-title">推荐资源</h3>
+        </div>
+        <div class="panel-body">
+          <ul class="list list-group">
+            <li v-for="(item, index) in resources" class="list-group-item" :key="(item, index)">
+              <a :href="item.link" target="_blank">
+                <img class="media-object inline-block " src="https://cn.vuejs.org/images/logo.png">
+                {{ item.title }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel panel-default corner-radius">
+        <div class="panel-body text-center">
+          <a href="mailto:summer@yousails.com" style="color:#a5a5a5">
+            <span style="margin-top: 7px;display: inline-block;">
+              <i class="fa fa-heart" style="color: rgba(232, 146, 136, 0.89);"></i>
+              建议反馈？请私信 Summer
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -74,7 +104,30 @@ export default {
         }
       ],
       activeUsers: [], // 活跃用户
-      hotArticles: [] // 最热文章
+      hotArticles: [], // 最热文章
+      // 推荐资源
+    resources: [
+      {
+        title: 'Vue 官方教程',
+        link: 'https://cn.vuejs.org/index.html',
+      },
+      {
+        title: 'Vuex 官方教程',
+        link: 'https://cn.vuejs.org/index.html',
+      },
+      {
+        title: 'Vue Router 官方教程',
+        link: 'https://cn.vuejs.org/index.html',
+      },
+      {
+        title: 'Vue Loader 官方教程',
+        link: 'https://cn.vuejs.org/index.html',
+      },
+      {
+        title: 'Vue 特有代码的风格指南',
+        link: 'https://cn.vuejs.org/index.html',
+      }
+    ]
     }
   },
   // 在实例创建完成后
