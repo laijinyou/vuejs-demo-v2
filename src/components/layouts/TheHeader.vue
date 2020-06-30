@@ -11,10 +11,10 @@
           <span class="icon-bar"></span>
         </button>
 
-        <a href="/" class="navbar-brand">
+        <router-link to="/" class="navbar-brand">
           <span class="title">{{ logo.title }}</span>
           <img :src="logo.src" :alt="logo.title">
-        </a>
+        </router-link>
       </div>
 
       <!-- v-for 使用 item in items 形式的特殊语法，items 是源数组的别名，对应我们这里的 navList，item 是数组元素的别名，你可以使用其他适合的名称。-->
