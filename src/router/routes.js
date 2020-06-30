@@ -65,4 +65,10 @@ export default [
     component: () => import('@/views/articles/Create'),
     meta: { auth: true }
   },
+  // Column
+  {
+    path: '/:user',
+    name: 'Column',
+    component: () => import('@/views/articles/Column')
+  },
 ]
