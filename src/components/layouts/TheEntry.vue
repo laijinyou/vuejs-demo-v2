@@ -12,9 +12,12 @@
           <span v-else>佚名</span>
           <span class="caret"></span>
         </a>
+        
+        <!-- 下拉菜单栏 -->
         <ul class="dropdown-menu">
-          <li><a href="#"><i class="fa fa-sign-out text-md"></i>退出</a></li>
+          <li><a href="javascript:;" @click="logout"><i class="fa fa-sign-out text-md"></i>退出</a></li>
         </ul>
+
       </li>
     </ul>
 
@@ -46,6 +49,12 @@ export default {
       // 映射 this.user 为 store.state.user
       'user'
     ])
+  },
+  // 添加 methods 选项，并添加 logout 方法
+  methods: {
+    logout() {
+      this.$store.dispatch('logout')
+    }
   }
 }
 </script>
