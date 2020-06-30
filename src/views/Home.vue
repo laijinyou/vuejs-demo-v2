@@ -19,6 +19,7 @@
         <div class="panel-body remove-padding-horizontal">
           <ul class="list-group row topic-list">
             <li v-for="article in articles" :key="article.articleId" class="list-group-item">
+              
               <router-link :to="`/articles/${article.articleId}/content`" tag="div" class="reply_count_area hidden-xs pull-right">
                 <div class="count_set">
                   <span class="count_of_votes" title="投票数">{{ article.likeUsers ? article.likeUsers.length : 0 }}</span>
@@ -28,14 +29,17 @@
                   <abbr class="timeago">{{ article.date | moment('from') }}</abbr>
                 </div>
               </router-link>
+
               <router-link :to="`/${article.uname}`" tag="div" class="avatar pull-left">
                 <img :src="article.uavatar" class="media-object img-thumbnail avatar avatar-middle">
               </router-link>
+
               <router-link :to="`/articles/${article.articleId}/content`" tag="div" class="infos">
                 <div class="media-heading">
                   {{ article.title }}
                 </div>
               </router-link>
+
             </li>
           </ul>
         </div>

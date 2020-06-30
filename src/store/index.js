@@ -73,7 +73,7 @@ const actions = {
 // 添加 getters
 const getters = {
   // 第一参数是 state，因为要传 id，所以这里返回一个函数
-  getArticleById: (state) => (id) => {
+  getArticleById: (state, getters) => (id) => {
     // 使用派生状态 computedArticles 作为所有文章
     let articles = getters.computedArticles
 
