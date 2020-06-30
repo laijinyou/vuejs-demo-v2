@@ -68,7 +68,13 @@ export default [
   // Column
   {
     path: '/:user',
-    name: 'Column',
-    component: () => import('@/views/articles/Column')
+    component: () => import('@/views/articles/Column'),
+    children: [
+      {
+        path: '',
+        name: 'Column',
+        component: () => import('@/views/articles/List.vue')
+      }
+    ]
   },
 ]
