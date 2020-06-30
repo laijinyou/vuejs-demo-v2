@@ -79,7 +79,7 @@
         </div>
       </div>
       <div class="panel-body">
-        <ul id="reply-list" class="list-group row">
+        <transition-group id="reply-list" name="fade" tag="ul" class="list-group row">
           <li v-for="(comment, index) in comments" :key="comment.commentId" class="list-group-item media">
             <div class="avatar avatar-container pull-left">
               <router-link :to="`/${comment.uname}`">
@@ -103,7 +103,7 @@
               <div class="preview media-body markdown-reply markdown-body" v-html="comment.content"></div>
             </div>
           </li>
-        </ul>
+        </transition-group>
         <div v-show="!comments.length" class="empty-block">
           暂无评论~~
         </div>
@@ -336,5 +336,6 @@ export default {
 </script>
 
 <style scoped>
-
+.fade-enter-active, .fade-leave-active { transition: opacity .5s;}
+.fade-enter, .fade-leave-to { opacity: 0;}
 </style>
