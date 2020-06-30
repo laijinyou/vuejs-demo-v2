@@ -16,7 +16,10 @@ router.beforeEach((to, from, next) => {
   // 获取仓库里的登录信息，使用 router.app 可以获取 router 对应的 Vue 根实例，使用实例的 $options.store 可以从选项中访问仓库
   const auth = router.app.$options.store.state.auth
 
-  if (auth && to.path.indexOf('/auth/') !== -1) {
+  if (
+    (auth && to.path.indexOf('/auth/') !== -1) ||
+    (!auth && to.meta.auth)
+  ) {
     // 如果当前用户已登录，且目标路由包含 /auth/ ，就跳转到首页
     next('/')
   } else {
