@@ -1,42 +1,38 @@
 <template>
-  <div class="container">
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Welcome from Bootstrap</h1>
-        <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-        <p><a class="btn btn-primary btn-lg" href="http://www.bootcss.com/" role="button" target="_blank">Learn more <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></a></p>
-      </div>
-    </div>
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Welcome from Font Awesome</h1>
-        <p>Get vector icons and social logos on your website with Font Awesome, the web’s most popular icon set and toolkit.</p>
-        <p>
-          <i class="fa fa-camera"></i>
-          <i class="fa fa-camera fa-2x"></i>
-          <i class="fa fa-camera fa-3x"></i>
-          <i class="fa fa-camera fa-4x"></i>
-          <i class="fa fa-camera fa-5x"></i>
-          <i class="fa fa-spinner fa-spin"></i>
-        </p>
-      </div>
-    </div>
+  <div id="wrap">
+    <TheHeader/>
   </div>
 </template>
 
 <script>
+import TheHeader from '@/components/layouts/TheHeader'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    TheHeader
+  }
 }
 </script>
 
 <style lang="scss">
+$container-large-desktop: 1200px;
+$btn-primary-bg: #00b5ad;
+$btn-primary-border: #00b5ad;
+$label-primary-bg: #00b5ad;
+$pagination-active-bg: #00b5ad;
+$pagination-active-border: #00b5ad;
+$pagination-color: #00b5ad;
+$input-border-focus: #00b5ad;
+$link-color: #12c4c5;
+$link-hover-color: #22ddde;
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 $fa-font-path: "~font-awesome/fonts/";
+
 @import "~bootstrap-sass/assets/stylesheets/_bootstrap";
 @import "~font-awesome/scss/font-awesome";
-
-body > .container { margin-top: 15px;}
+@import "./styles/main";
+@import "./styles/extra";
 </style>
 <!-- 通过为 <template> 和 <style> 指定 lang 属性，我们就可以使用其他语法来书写代码。-->
 <!-- 以 .vue 结尾的文件构成了一个单文件组件，它可以由 <template>、<script> 和 <style> 三个部分组成，分别对应模板、脚本和样式。-->
