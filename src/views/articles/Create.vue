@@ -108,8 +108,8 @@ export default {
           content
         }
 
-        // 在控制台输出当前文章
-        console.log(article)
+        // 分发 post 事件，并附带参数 { article }
+        this.$store.dispatch('post', { article })
         // 清除数据
         this.clearData()
       }

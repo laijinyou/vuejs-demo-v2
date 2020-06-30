@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import ls from '../utils/localStorage'
 import router from '../router'
+// 引入 actions.js 的所有导出
+import * as moreActions from './actions'
 
 Vue.use(Vuex)
 
@@ -10,7 +12,9 @@ const state = {
   // 用户信息，初始值从本地 localStorage 获取
   user: ls.getItem('user'),
   // 添加 auth 来保存当前用户的登录状态
-  auth: ls.getItem('auth')
+  auth: ls.getItem('auth'),
+  // 所有文章状态
+  articles: ls.getItem('articles')
 }
 
 // 更改状态的方法，我们可以在这里更改状态，调用方法是像 store.commit('UPDATE_USER', user) 这样提交一个事件类型，这里不能包含异步操作
@@ -25,6 +29,11 @@ const mutations = {
   UPDATE_AUTH(state, auth) {
     state.auth = auth
     ls.setItem('auth', auth)
+  },
+  // 更改所有文章的事件类型
+  UPDATE_ARTICLES(state, articles) {
+    state.articles = articles
+    ls.setItem('articles', articles)
   }
 }
 
@@ -55,7 +64,9 @@ const actions = {
 
     // 更新个人信息
     commit('UPDATE_USER', user)
-  }
+  },
+  // 使用对象展开运算符混入 moreActions
+  ...moreActions
 }
 
 const store = new Vuex.Store({
