@@ -51,7 +51,8 @@
         {
           "allowEmptyCatch": true
         }
-      ]
+      ],
+      "no-case-declarations": "off"
     }
   },
   "browserslist": [
