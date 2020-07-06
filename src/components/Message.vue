@@ -8,6 +8,7 @@
 <script>
 export default {
   name: 'Message',
+  // 用来在父组件上传递数据的
   props: {
     // 是否显示消息框
     show: {
