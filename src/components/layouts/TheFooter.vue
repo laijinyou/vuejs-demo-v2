@@ -2,6 +2,8 @@
   <footer class="footer">
     <div class="container">
       <div class="row footer-top">
+
+        <!-- 左侧 -->
         <div class="col-sm-5 col-lg-5">
           <p class="padding-top-xsm">{{ description }}</p>
 
@@ -12,12 +14,14 @@
           </div>
 
           <br>
-
           <span v-html="designer"></span>
         </div>
 
+        <!-- 右侧 -->
         <div class="col-sm-6 col-lg-6 col-lg-offset-1">
           <div class="row">
+
+            <!-- 赞助商 -->
             <div class="col-sm-4">
               <h4>{{ sponsor.title }}</h4>
 
@@ -30,6 +34,7 @@
               </ul>
             </div>
 
+            <!-- 统计信息 -->
             <div class="col-sm-4">
               <h4>{{ statistics.title }}</h4>
 
@@ -38,6 +43,7 @@
               </ul>
             </div>
 
+            <!-- 统计信息 -->
             <div class="col-sm-4">
               <h4>{{ other.title }}</h4>
 
@@ -49,22 +55,23 @@
                 </li>
               </ul>
             </div>
+
           </div>
         </div>
+
       </div>
     </div>
   </footer>
 </template>
 
 <script>
-// 引入 title.js 的默认值
-import title from '@/directives/title'
+import title from '@/directives/title' // 引入 title.js
 
 export default {
   name: 'TheFooter',
-  // 添加 directives 选项，并注册 title
+  // 添加 directives 选项，注册自定义指令
   directives: {
-    title
+    title // 注册 title.js
   },
   data() {
     return {
@@ -72,7 +79,7 @@ export default {
       contacts: [
         {
           icon: 'envelope',
-          title: '反馈问题',
+          title: '发送邮件',
           link: 'mailto:1183820@qq.com'
         },
         {
@@ -86,11 +93,12 @@ export default {
           link: 'https://trip123.com/'
         }
       ],
-      // 添加了一个样式对象 contactStyle，绑定到 style
+      // 样式对象 contactStyle，绑定到 style
       contactStyle: {
         paddingRight: '8px'
       },
-      // 添加了一个 HTML 字符串 designer，为了输出 HTML，我们需要使用 v-html 指令
+      // HTML 字符串 designer，为了输出 HTML，我们需要使用 v-html 指令,
+      // 上面的 <span> 里的内容（这里没有内容）将会被替换成 designer 的内容，直接作为 HTML 输出。
       designer: `
         <span style="font-size:0.9em">Designed by
           <span style="color: #e27575;font-size: 14px;">❤</span>

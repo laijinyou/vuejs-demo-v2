@@ -65,6 +65,7 @@ function validate(el, modifiers, bindingValue) {
   }
   
   export default {
+    // bind：只调用一次，指令第一次绑定到元素时调用，在这里可以进行一次性的初始化设置
     bind(el, binding, vnode) {
       // 使用解构赋值声明 value = binding.value,  arg = binding.arg,  modifiers = binding.modifiers
       const { value, arg, modifiers } = binding
@@ -91,6 +92,7 @@ function validate(el, modifiers, bindingValue) {
         el.destroy = null
       }
     },
+    // inserted：被绑定元素插入父节点时调用
     inserted(el, binding, vnode) {
       const { value, modifiers } = binding
       // 指定当前一系列验证项的父级，我们这里指定为含 data-validator-form 的元素
@@ -126,6 +128,7 @@ function validate(el, modifiers, bindingValue) {
         }
       }
     },
+    // unbind：只调用一次，指令与元素解绑时调用，在这里可以移除绑定的事件和其他数据
     unbind(el) {
       // 移除事件监听和数据绑定  
       el.destroy()

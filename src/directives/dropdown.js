@@ -1,4 +1,5 @@
 export default {
+  // bind：只调用一次，指令第一次绑定到元素时调用，在这里可以进行一次性的初始化设置
     bind(el, binding, vnode) {
       // 当前元素的事件处理器
       const handler = () => {
@@ -26,6 +27,7 @@ export default {
         el.destroy = null
       }
     },
+    // unbind：只调用一次，指令与元素解绑时调用，在这里可以移除绑定的事件和其他数据
     unbind(el) {
       el.destroy()
     }

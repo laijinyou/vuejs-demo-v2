@@ -42,6 +42,7 @@ function showTitle(el, title) {
   }
   
   export default {
+    // 钩子函数bind，只调用一次，指令第一次绑定到元素时调用，在这里可以进行一次性的初始化设置
     bind(el, binding, vnode) {
       // 使用 const 声明一个只读的常量，其值是需要监听的事件类型列表
       const events = ['mouseenter', 'mouseleave', 'click']
@@ -71,6 +72,7 @@ function showTitle(el, title) {
         el.destroy = null
       }
     },
+    // 钩子函数unbind，只调用一次，指令与元素解绑时调用，在这里可以移除绑定的事件和其他数据
     unbind(el) {
       // 移除事件监听和数据绑定
       el.destroy()

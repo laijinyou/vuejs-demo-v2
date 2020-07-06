@@ -15,14 +15,15 @@
 </template>
 
 <script>
-import TheHeader from '@/components/layouts/TheHeader' // 引入页头文件 TheHeader.vue
-import TheFooter from '@/components/layouts/TheFooter' // 引入页脚文件 TheFooter.vue
+import TheHeader from '@/components/layouts/TheHeader' // 引入 TheHeader.vue
+import TheFooter from '@/components/layouts/TheFooter' // 引入 TheFooter.vue
 
 export default {
   name: 'App',
+  // 注册组件
   components: {
-    TheHeader, // 注册 TheHeader.vue
-    TheFooter // 注册 TheFooter.vue
+    TheHeader,
+    TheFooter
   }
 }
 </script>
