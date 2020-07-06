@@ -1,29 +1,28 @@
 <template>
   <div id="wrap">
 
+    <!-- 页头 -->
     <TheHeader/>
 
     <div id="main-container" class="container main-container">
       <router-view/>
     </div>
 
-    <!-- TheFooter -->
+    <!-- 页脚 -->
     <TheFooter/>
     
   </div>
 </template>
 
 <script>
-import TheHeader from '@/components/layouts/TheHeader'
-// 引入 TheFooter.vue 的默认值
-import TheFooter from '@/components/layouts/TheFooter'
+import TheHeader from '@/components/layouts/TheHeader' // 引入页头文件 TheHeader.vue
+import TheFooter from '@/components/layouts/TheFooter' // 引入页脚文件 TheFooter.vue
 
 export default {
   name: 'App',
   components: {
-    TheHeader,
-    // 注册 TheFooter
-    TheFooter
+    TheHeader, // 注册 TheHeader.vue
+    TheFooter // 注册 TheFooter.vue
   }
 }
 </script>
@@ -39,13 +38,13 @@ $pagination-color: #00b5ad;
 $input-border-focus: #00b5ad;
 $link-color: #12c4c5;
 $link-hover-color: #22ddde;
-$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
-$fa-font-path: "~font-awesome/fonts/";
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/"; // 指定字体路径
+$fa-font-path: "~font-awesome/fonts/"; // 指定字体路径
 
-@import "~bootstrap-sass/assets/stylesheets/_bootstrap";
-@import "~font-awesome/scss/font-awesome";
-@import "./styles/main";
-@import "./styles/extra";
+@import "~bootstrap-sass/assets/stylesheets/_bootstrap"; // bootstrap样式
+@import "~font-awesome/scss/font-awesome"; // 字体样式
+@import "./styles/main"; // 网站样式
+@import "./styles/extra"; // 网站样式
 @import '~simplemde/dist/simplemde.min.css';
 @import '~highlight.js/styles/paraiso-dark.css';
 @import "~animate.css/animate.min.css";

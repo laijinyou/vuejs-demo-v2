@@ -3,6 +3,7 @@
 
     <div class="container">
 
+      <!-- 左侧导航栏 -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" @click="toggleNav">
           <span class="sr-only">Toggle navigation</span>
@@ -11,6 +12,7 @@
           <span class="icon-bar"></span>
         </button>
 
+        <!-- 网站Logo，数据绑定到data里的对象。 -->
         <router-link to="/" class="navbar-brand">
           <span class="title">{{ logo.title }}</span>
           <img :src="logo.src" :alt="logo.title">
@@ -28,12 +30,14 @@
           </li>
         </ul>
 
-         <!-- 入口组件 -->
+         <!-- 右侧导航栏 -->
         <div class="navbar-right">
           <!-- 搜索框 -->
           <SearchInput/>
+          <!-- 登录注册 -->
           <TheEntry/>
         </div>
+
       </div>
     </div>
 
@@ -41,19 +45,17 @@
 </template>
 
 <script>
-// 引入 TheEntry.vue 的默认值
-import TheEntry from '@/components/layouts/TheEntry'
-// 引入 SearchInput.vue 默认值
-import SearchInput from '@/components/layouts/SearchInput'
+import TheEntry from '@/components/layouts/TheEntry' // 引入 TheEntry.vue
+import SearchInput from '@/components/layouts/SearchInput' // 引入 SearchInput.vue 
 
 export default {
   name: 'TheHeader',
-  // 添加 components 选项，并注册 TheEntry
+  //  components 注册组件
   components: {
     TheEntry,
     SearchInput
   },
-  // 数据对象，在组件里必须是返回一个初始数据对象的函数，我们可以在这里添加所需的数据
+  // data 数据对象，在组件里必须是返回一个初始数据对象的函数。
   data() {
     return {
       logo: {
@@ -63,21 +65,19 @@ export default {
       },
       navList: ['社区', '头条', '问答', '教程'],
       activeNavIndex: 0,
-      // 添加一个是否显示折叠导航的开关 showCollapsedNav
-      showCollapsedNav: false
+      showCollapsedNav: false // 是否显示折叠导航的开关
     }
   },
   // 生命周期钩子的一部分，在实例初始化之后，数据观测之前被调用，所以我们能从数据对象 data 中访问 this.uploadsUrl
   beforeCreate() {
-    // 在当前实例上添加一个 uploadsUrl 属性
-    this.uploadsUrl = 'https://cdn.trip123.com'
+    this.uploadsUrl = 'https://cdn.trip123.com' // 在当前实例上添加一个 uploadsUrl 属性
   },
   // methods 选项用来存放当前实例的方法，这些方法可以通过当前实例进行访问，如 this.changeNavIndex(1)，在指令表达式中，我们直接使用 changeNavIndex(1) 进行访问。
   methods: {
     changeNavIndex(index) {
       this.activeNavIndex = index
     },
-    // 添加一个 toggleNav 的方法，用来改变 showCollapsedNav
+    // toggleNav 的方法，用来改变 showCollapsedNav
     toggleNav() {
       this.showCollapsedNav = !this.showCollapsedNav
     }
@@ -85,7 +85,7 @@ export default {
 }
 </script>
 
-<!-- scoped：添加此属性，则样式只在当前组件起作用。-->
+<!-- scoped 属性代表样式只在当前组件起作用。-->
 <style scoped>
 .title { display: none;}
 .navbar-default .navbar-nav > .active > a { background: rgba(0,0,0,.03);}
