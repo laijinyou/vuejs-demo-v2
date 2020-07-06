@@ -13,13 +13,13 @@
         <!-- 我们先在外层元素上，添加 data-validator-form 属性，使其成为所有验证项的父级.-->
         <div class="panel-body" data-validator-form>
           
-          <!-- 用户名 -->
+          <!-- 用户名 v-model 指令可以在表单 <input> 及 <textarea> 元素上创建双向数据绑定。-->
           <div class="form-group">
             <label class="control-label">用户名</label>
             <input v-model.trim="username" v-validator:input.required="{ regex: /^[a-zA-Z]+\w*\s?\w*$/, error: '用户名要求以字母开头的单词字符' }" type="text" class="form-control" placeholder="请填写用户名">
           </div>
 
-          <!-- 密码 -->
+          <!-- 密码 .trim 是一个修饰符，用于过滤用户输入的首尾空白字符。-->
           <div class="form-group">
             <label class="control-label">密码</label>
             <input id="password" v-model.trim="password" v-validator.required="{ regex: /^\w{6,16}$/, error: '密码要求 6 ~ 16 个单词字符' }" type="password" class="form-control" placeholder="请填写密码">
@@ -76,13 +76,14 @@ export default {
     this.getCaptcha() // 调用methods里的方法
   },
   methods: {
-    // 生成验证码
+    // 点击事件，生成验证码
     getCaptcha() {
       const { tpl, captcha } = createCaptcha(6)
 
       this.captchaTpl = tpl
       this.localCaptcha = captcha
     },
+    // 点击事件，触发注册方法，然后调用submit方法
     register(e) {
       this.$nextTick(() => {
         const target = e.target.type === 'submit' ? e.target : e.target.parentElement
