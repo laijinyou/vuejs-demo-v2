@@ -1,3 +1,8 @@
+// 指令的绑定值，这里是 { regex: /^[a-zA-Z]+\w*\s?\w*$/, error: '用户名要求以字母开头的单词字符' }
+// binding.value：指令的绑定值，这里是 { regex: /^[a-zA-Z]+\w*\s?\w*$/, error: '用户名要求以字母开头的单词字符' }
+// binding.arg：传给指令的参数，这里是 'input'
+// binding.modifiers：一个包含修饰符的对象，这里是 { required: true }
+
 // 具体的验证逻辑
 function validate(el, modifiers, bindingValue) {
     bindingValue = bindingValue && typeof bindingValue === 'object' ? bindingValue : {}
@@ -92,7 +97,7 @@ function validate(el, modifiers, bindingValue) {
         el.destroy = null
       }
     },
-    // inserted：被绑定元素插入父节点时调用
+    // inserted：被绑定元素插入父节点时调用，该钩子保证了父节点的存在，因此可以在这里访问父节点 。
     inserted(el, binding, vnode) {
       const { value, modifiers } = binding
       // 指定当前一系列验证项的父级，我们这里指定为含 data-validator-form 的元素

@@ -5,6 +5,7 @@
     <TheHeader/>
 
     <div id="main-container" class="container main-container">
+      <!-- 功能组件，它会渲染路径匹配到的视图组件 -->
       <router-view/>
     </div>
 

@@ -12,28 +12,41 @@
 
         <!-- 我们先在外层元素上，添加 data-validator-form 属性，使其成为所有验证项的父级.-->
         <div class="panel-body" data-validator-form>
+          
+          <!-- 用户名 -->
           <div class="form-group">
             <label class="control-label">用户名</label>
             <input v-model.trim="username" v-validator:input.required="{ regex: /^[a-zA-Z]+\w*\s?\w*$/, error: '用户名要求以字母开头的单词字符' }" type="text" class="form-control" placeholder="请填写用户名">
           </div>
+
+          <!-- 密码 -->
           <div class="form-group">
             <label class="control-label">密码</label>
             <input id="password" v-model.trim="password" v-validator.required="{ regex: /^\w{6,16}$/, error: '密码要求 6 ~ 16 个单词字符' }" type="password" class="form-control" placeholder="请填写密码">
           </div>
+
+          <!-- 确认密码 -->
           <div class="form-group">
             <label class="control-label">确认密码</label>
             <input v-model.trim="cpassword" v-validator.required="{ target: '#password' }" type="password" class="form-control" placeholder="请填写确认密码">
           </div>
+
+          <!-- 图片验证码 -->
           <div class="form-group">
             <label class="control-label">图片验证码</label>
             <input v-model.trim="captcha" v-validator.required="{ title: '图片验证码' }" type="text" class="form-control" placeholder="请填写验证码">
           </div>
+
+          <!-- 点击获取验证码 -->
           <div class="thumbnail" title="点击图片重新获取验证码" @click="getCaptcha">
             <div class="captcha vcenter" v-html="captchaTpl"></div>
           </div>
+
+          <!-- 注册按钮 -->
           <button type="submit" class="btn btn-lg btn-success btn-block" @click="register">
             <i class="fa fa-btn fa-sign-in"></i> 注册
           </button>
+
         </div>
       </div>
     </div>
@@ -60,9 +73,10 @@ export default {
   },
   // 生命周期钩子 created 在实例创建完成后被立即调用
   created() {
-    this.getCaptcha()
+    this.getCaptcha() // 调用methods里的方法
   },
   methods: {
+    // 生成验证码
     getCaptcha() {
       const { tpl, captcha } = createCaptcha(6)
 

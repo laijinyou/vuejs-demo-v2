@@ -66,8 +66,7 @@
 </template>
 
 <script>
-// 引入 mapState 辅助函数
-import { mapState } from 'vuex'
+import { mapState } from 'vuex' // 引入 mapState 辅助函数
 
 export default {
   name: 'TheEntry',

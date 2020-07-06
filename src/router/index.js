@@ -1,12 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// 引入 ./routes.js 的默认值
-import routes from './routes'
+import routes from './routes' // 引入 routes.js
 
 Vue.use(Router)
 
 const router =  new Router({
-  mode: 'history',
+  mode: 'history', // 利用 History API 来完成页面跳转且无须重新加载
   linkExactActiveClass: 'active',
   // 指定滚动行为
   scrollBehavior(to, from, savedPosition) {
@@ -21,7 +20,7 @@ const router =  new Router({
       return { x: 0, y: 0 }
     }
   },
-  routes
+  routes // 具体的路由配置列表
 })
 
 // 全局前置守卫
