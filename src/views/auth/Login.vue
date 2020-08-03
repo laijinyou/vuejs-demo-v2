@@ -1,6 +1,8 @@
 <template>
   <div class="row">
     <div class="col-md-4 col-md-offset-4 floating-box">
+      
+      <!-- 消息组件 -->
       <Message :show.sync="msgShow" :type="msgType" :msg="msg"/>
 
       <div class="panel panel-default">

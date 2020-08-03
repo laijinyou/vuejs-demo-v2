@@ -1,6 +1,5 @@
 <template>
   <div class="navbar navbar-default topnav">
-
     <div class="container">
 
       <!-- 左侧导航栏 -->
@@ -12,29 +11,27 @@
           <span class="icon-bar"></span>
         </button>
 
-        <!-- 网站Logo，数据绑定到data里的对象。 -->
+        <!-- 网站 Logo -->
         <router-link to="/" class="navbar-brand">
           <span class="title">{{ logo.title }}</span>
           <img :src="logo.src" :alt="logo.title">
         </router-link>
       </div>
 
-      <!-- v-for 使用 item in items 形式的特殊语法，items 是源数组的别名，对应我们这里的 navList，item 是数组元素的别名，你可以使用其他适合的名称。-->
+      <!-- 菜单栏-->
       <div id="top-navbar-collapse" :class="['collapse', 'navbar-collapse', { in: showCollapsedNav }]">
         <ul class="nav navbar-nav">
-          <!-- v-for 支持一个可选的第二个参数为当前项的索引，该索引从 0 开始，对应我们这里的 index-->
-          <!-- 我们使用对象语法对 class 进行了绑定，上面的语法表示当 index === activeNavIndex 返回 true 时添加 'active' 这个类名-->
+
+          <!-- 当 index === activeNavIndex 返回 true 时添加 'active' 这个类名-->
           <li v-for="(item, index) in navList" :key="item" :class="{ active: index === activeNavIndex }">
-            <!-- 我们在 <a> 上使用 @click 绑定一个点击事件处理器 changeNavIndex，对应 methods 选项下的 changeNavIndex 方法， @click 是 v-on:click 指令的缩写-->
+            <!-- @click 是 v-on:click 指令的缩写-->
             <a href="#" @click="changeNavIndex(index)">{{ item }}</a>
           </li>
         </ul>
 
          <!-- 右侧导航栏 -->
         <div class="navbar-right">
-          <!-- 搜索框 -->
           <SearchInput/>
-          <!-- 登录注册 -->
           <TheEntry/>
         </div>
 
@@ -45,17 +42,15 @@
 </template>
 
 <script>
-import TheEntry from '@/components/layouts/TheEntry' // 引入 TheEntry.vue
-import SearchInput from '@/components/layouts/SearchInput' // 引入 SearchInput.vue 
+import TheEntry from './TheEntry'
+import SearchInput from './SearchInput'
 
 export default {
   name: 'TheHeader',
-  //  components 注册组件
   components: {
     TheEntry,
     SearchInput
   },
-  // data 数据对象，在组件里必须是返回一个初始数据对象的函数。
   data() {
     return {
       logo: {
@@ -68,16 +63,14 @@ export default {
       showCollapsedNav: false // 是否显示折叠导航的开关
     }
   },
-  // 生命周期钩子的一部分，在实例初始化之后，数据观测之前被调用，所以我们能从数据对象 data 中访问 this.uploadsUrl
   beforeCreate() {
-    this.uploadsUrl = 'https://cdn.trip123.com' // 在当前实例上添加一个 uploadsUrl 属性
+    this.uploadsUrl = 'https://cdn.trip123.com'
   },
-  // methods 选项用来存放当前实例的方法，这些方法可以通过当前实例进行访问，如 this.changeNavIndex(1)，在指令表达式中，我们直接使用 changeNavIndex(1) 进行访问。
   methods: {
     changeNavIndex(index) {
       this.activeNavIndex = index
     },
-    // toggleNav 的方法，用来改变 showCollapsedNav
+    // 改变 showCollapsedNav
     toggleNav() {
       this.showCollapsedNav = !this.showCollapsedNav
     }
@@ -85,9 +78,7 @@ export default {
 }
 </script>
 
-<!-- scoped 属性代表样式只在当前组件起作用。-->
 <style scoped>
 .title { display: none;}
 .navbar-default .navbar-nav > .active > a { background: rgba(0,0,0,.03);}
 </style>
-<!-- src 和 alt 都是 HTML 特性，不能使用 Mustache 语法，而要使用 v-bind 指令，:src 是 v-bind:src 的缩写。-->
